@@ -83,25 +83,6 @@ const METHOD = [
   { n: "05", title: "Reuniones de seguimiento", desc: "Reuniones regulares con el comité de administración para alinear decisiones y mantener la confianza." },
 ];
 
-const PORTFOLIO = [
-  { name: "Costa Montemar II", comuna: "Concón", unidades: "241", periodo: "2024 – 2025" },
-  { name: "Olas de Playa Amarilla", comuna: "Concón", unidades: "60", periodo: "2026" },
-  { name: "Plaza Rioja", comuna: "Viña del Mar", unidades: "114", periodo: "2024" },
-  { name: "Torres de Bilbao", comuna: "Las Condes / Providencia", unidades: "320", periodo: "2024" },
-  { name: "Jardines de Reñaca", comuna: "Reñaca", unidades: "140", periodo: "2024 – 2025" },
-  { name: "Bosque Mar", comuna: "Concón", unidades: "206", periodo: "2024 – Presente" },
-  { name: "Edificio Florencia", comuna: "Reñaca", unidades: "40", periodo: "2025" },
-];
-
-const COMPANY_FACTS = [
-  { label: "Razón Social", value: "Montemar Administradores SpA" },
-  { label: "RUT Empresa", value: "78.203.277-1" },
-  { label: "Giro", value: "Servicios de Administración de Comunidades" },
-  { label: "Dirección", value: "Av. San Fernando 46, Concón" },
-  { label: "Región de operación", value: "Valparaíso (Viña del Mar, Reñaca, Concón, Quilpué)" },
-  { label: "Registro MINVU", value: "Los 4 administradores inscritos y vigentes, a título oneroso" },
-];
-
 // Replace this with your real Formspree endpoint (see setup instructions).
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mbgrrjrd";
 
@@ -121,7 +102,7 @@ function Header() {
           {NAV.map((item) => (
             <a key={item.href} href={item.href} className="hover:text-blue-700 transition">{item.label}</a>
           ))}
-          <a href="#contacto" className="bg-blue-700 text-white px-4 py-2 rounded-full hover:bg-blue-800 transition">CONTACTO</a>
+          <a href="#contacto" className="bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition font-semibold">CONTACTO</a>
         </nav>
         <button className="md:hidden text-slate-700" onClick={() => setOpen(!open)} aria-label="Menú">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -144,20 +125,21 @@ function Hero() {
       className="relative bg-cover bg-center"
       style={{ backgroundImage: `url(${HERO_BG_URL})` }}
     >
-      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-white/55 via-white/60 to-white"></div>
+      <div className="absolute top-0 right-0 w-1/2 h-2 bg-gradient-to-r from-transparent to-orange-400"></div>
       <div className="relative max-w-6xl mx-auto px-5 pt-16 pb-20 text-center">
-        <div className="text-xs font-semibold tracking-widest text-blue-800 bg-blue-50 inline-block px-3 py-1 rounded-full mb-6 border border-blue-100">
+        <div className="text-xs font-semibold tracking-widest text-white bg-blue-700 inline-block px-3 py-1 rounded-full mb-6 shadow-sm">
           ADMINISTRACIÓN PROFESIONAL · LEY 21.442
         </div>
-        <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight max-w-4xl mx-auto">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 leading-tight max-w-4xl mx-auto drop-shadow-sm">
           Gestión que genera confianza en cada comunidad
         </h1>
-        <p className="mt-6 text-lg text-slate-600 max-w-2xl mx-auto">
+        <p className="mt-6 text-lg text-slate-700 max-w-2xl mx-auto font-medium">
           Administramos condominios, edificios y locales comerciales en la Región de Valparaíso con transparencia, eficiencia y tecnología de vanguardia.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#contacto" className="bg-blue-700 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-800 transition shadow-sm">Solicitar cotización</a>
-          <a href="#servicios" className="border border-slate-300 bg-white/80 text-slate-700 px-6 py-3 rounded-full font-medium hover:border-blue-400 hover:text-blue-700 transition">Ver servicios</a>
+          <a href="#contacto" className="bg-orange-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-orange-600 transition shadow-md">Solicitar cotización</a>
+          <a href="#servicios" className="border-2 border-blue-700 bg-white text-blue-700 px-6 py-3 rounded-full font-semibold hover:bg-blue-700 hover:text-white transition shadow-sm">Ver servicios</a>
         </div>
       </div>
     </section>
@@ -177,13 +159,13 @@ function Nosotros() {
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           {VALUES.map((v) => (
-            <span key={v} className="text-xs font-semibold tracking-wider bg-white border border-blue-100 text-blue-800 px-3 py-2 rounded-full">{v}</span>
+            <span key={v} className="text-xs font-semibold tracking-wider bg-blue-700 text-white px-3 py-2 rounded-full">{v}</span>
           ))}
         </div>
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {MISSION_VISION_VALUES.map((m, i) => (
-            <div key={m.title} className={`bg-white rounded-2xl p-6 border-t-4 shadow-sm ${i === 0 ? "border-blue-700" : i === 1 ? "border-blue-400" : "border-slate-800"}`}>
+            <div key={m.title} className={`bg-white rounded-2xl p-6 border-t-4 shadow-sm ${i === 0 ? "border-blue-700" : i === 1 ? "border-orange-400" : "border-slate-800"}`}>
               <div className="font-bold text-slate-900 text-lg mb-2">{m.title}</div>
               <p className="text-sm text-slate-600 leading-relaxed">{m.desc}</p>
             </div>
@@ -194,7 +176,7 @@ function Nosotros() {
           <div className="text-xs font-semibold tracking-widest text-blue-800 mb-4">NUESTRO EQUIPO</div>
           <div className="grid md:grid-cols-2 gap-6">
             {TEAM.map((p) => (
-              <div key={p.name} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+              <div key={p.name} className="bg-white rounded-2xl p-6 border-l-4 border-orange-400 shadow-sm">
                 <div className="font-bold text-slate-900 text-lg">{p.name}</div>
                 <div className="text-xs font-semibold tracking-widest text-blue-700 mt-1 mb-3">{p.role}</div>
                 <p className="text-sm text-slate-600 leading-relaxed">{p.bio}</p>
@@ -203,46 +185,6 @@ function Nosotros() {
           </div>
         </div>
 
-        <div className="mt-16">
-          <div className="text-xs font-semibold tracking-widest text-blue-800 mb-4">TRAYECTORIA Y PORTAFOLIO</div>
-          <p className="text-sm text-slate-600 max-w-3xl mb-6">
-            El equipo de Montemar Administradores acredita experiencia directa en la administración y co-administración de las siguientes comunidades:
-          </p>
-          <div className="overflow-x-auto rounded-2xl border border-slate-100 shadow-sm">
-            <table className="w-full text-sm text-left">
-              <thead>
-                <tr className="bg-blue-700 text-white">
-                  <th className="px-5 py-3 font-semibold">Condominio</th>
-                  <th className="px-5 py-3 font-semibold">Comuna</th>
-                  <th className="px-5 py-3 font-semibold">Unidades</th>
-                  <th className="px-5 py-3 font-semibold">Periodo</th>
-                </tr>
-              </thead>
-              <tbody className="bg-white">
-                {PORTFOLIO.map((row, i) => (
-                  <tr key={row.name} className={i % 2 === 1 ? "bg-slate-50" : ""}>
-                    <td className="px-5 py-3 font-medium text-slate-900">{row.name}</td>
-                    <td className="px-5 py-3 text-slate-600">{row.comuna}</td>
-                    <td className="px-5 py-3 text-slate-600">{row.unidades}</td>
-                    <td className="px-5 py-3 text-slate-600">{row.periodo}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <div className="mt-16">
-          <div className="text-xs font-semibold tracking-widest text-blue-800 mb-4">FICHA DE LA EMPRESA</div>
-          <div className="bg-white rounded-2xl border border-slate-100 shadow-sm divide-y divide-slate-100">
-            {COMPANY_FACTS.map((f) => (
-              <div key={f.label} className="grid sm:grid-cols-3 px-5 py-3 gap-1">
-                <div className="text-xs font-semibold tracking-wider text-slate-400 sm:col-span-1">{f.label.toUpperCase()}</div>
-                <div className="text-sm text-slate-800 sm:col-span-2">{f.value}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -261,8 +203,8 @@ function Servicios() {
         </p>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES.map((s) => (
-            <div key={s.n} className="border border-slate-100 rounded-2xl p-6 hover:shadow-md hover:border-blue-100 transition">
-              <div className="text-2xl font-extrabold text-blue-100 mb-3">{s.n}</div>
+            <div key={s.n} className="border border-slate-100 rounded-2xl p-6 hover:shadow-md hover:border-orange-200 transition">
+              <div className="text-2xl font-extrabold text-orange-400 mb-3">{s.n}</div>
               <div className="font-semibold text-slate-900 mb-2">{s.title}</div>
               <p className="text-sm text-slate-600 leading-relaxed">{s.desc}</p>
             </div>
@@ -277,12 +219,12 @@ function Metodologia() {
   return (
     <section id="metodologia" className="bg-blue-950 text-white py-20">
       <div className="max-w-6xl mx-auto px-5">
-        <div className="text-xs font-semibold tracking-widest text-blue-300 mb-3">METODOLOGÍA</div>
+        <div className="text-xs font-semibold tracking-widest text-orange-400 mb-3">METODOLOGÍA</div>
         <h2 className="text-3xl md:text-4xl font-bold mb-12">Cómo trabajamos</h2>
         <div className="grid md:grid-cols-5 gap-8">
           {METHOD.map((m) => (
             <div key={m.n}>
-              <div className="text-3xl font-extrabold text-blue-400 mb-3">{m.n}</div>
+              <div className="text-3xl font-extrabold text-orange-400 mb-3">{m.n}</div>
               <div className="font-semibold mb-2">{m.title}</div>
               <p className="text-sm text-blue-100/80 leading-relaxed">{m.desc}</p>
             </div>
@@ -321,7 +263,7 @@ function Contacto() {
   return (
     <section id="contacto" className="py-20">
       <div className="max-w-6xl mx-auto px-5">
-        <div className="text-xs font-semibold tracking-widest text-blue-800 mb-3">CONTÁCTENOS</div>
+        <div className="text-xs font-semibold tracking-widest text-orange-500 mb-3">CONTÁCTENOS</div>
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12">Hablemos de su comunidad</h2>
         <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-6">
